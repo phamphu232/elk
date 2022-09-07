@@ -28,15 +28,35 @@ docker compose up -d
 ```console
 curl -X POST "localhost:9200/_security/role/logstash_writer" -H 'Content-Type: application/json' -u elastic:changeme -d'
 {
-  "cluster": ["manage_index_templates", "monitor", "manage_ilm"], 
+  "cluster": [
+    "manage_index_templates",
+    "monitor",
+    "manage_ilm"
+  ],
   "indices": [
     {
-      "names": [ "logs-generic-default","logstash-*","ecs-logstash-*""logstash-*" ], 
-      "privileges": ["write","create","create_index","manage","manage_ilm"]  
+      "names": [
+        "logs-generic-default",
+        "logstash-*",
+        "ecs-logstash-*"
+      ],
+      "privileges": [
+        "write",
+        "create",
+        "create_index",
+        "manage",
+        "manage_ilm"
+      ]
     },
     {
-      "names": [ "logstash","ecs-logstash" ],
-      "privileges": [ "write","manage" ]
+      "names": [
+        "logstash",
+        "ecs-logstash"
+      ],
+      "privileges": [
+        "write",
+        "manage"
+      ]
     }
   ]
 }
